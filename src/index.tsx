@@ -5,6 +5,12 @@ import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import { BrowserRouter } from "react-router-dom";
 
+if (caches) {
+  caches.keys().then(async function (names) {
+    await Promise.all(names.map((name) => caches.delete(name)));
+  });
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
