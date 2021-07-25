@@ -9,6 +9,7 @@ if (caches) {
   caches.keys().then(async function (names) {
     await Promise.all(names.map((name) => caches.delete(name)));
   });
+  window.location.reload();
 }
 
 ReactDOM.render(
