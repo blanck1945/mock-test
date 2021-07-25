@@ -1,5 +1,5 @@
 import "./App.css";
-import { Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Madisonpage from "./pages/madisonpage";
 import Homepage from "./pages/homepage";
 
