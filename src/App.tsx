@@ -1,24 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 function App() {
+  const [mockData, setMockData] = useState<any[] | undefined>(undefined);
+
+  const getData = async () => {
+    const data: any = await axios.get(
+      "https://jsonplaceholder.typicode.com/users"
+    );
+    console.log(data);
+    setMockData(data.data);
+  };
+
+  console.log(mockData);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <Link to="/newPage">Nueva Pagina</Link>
+        <button onClick={() => getData()}>Obtener Data</button>
+      </div>
+      <div>
+        {mockData
+          ? mockData.map((el: any) => {
+              return (
+                <div>
+                  <p>{el.id}</p>
+                  <p>{el.username}</p>
+                </div>
+              );
+            })
+          : null}
+      </div>
     </div>
   );
 }
