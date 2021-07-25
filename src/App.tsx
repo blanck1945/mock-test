@@ -8,7 +8,7 @@ function App() {
 
   const getData = async () => {
     const data: any = await axios.get(
-      "https://jsonplaceholder.typicode.com/posts"
+      "https://jsonplaceholder.typicode.com/users"
     );
     console.log(data);
     setMockData(data.data);
@@ -28,7 +28,7 @@ function App() {
               return (
                 <div>
                   <p>{el.id}</p>
-                  <p>{el.title}</p>
+                  <p>{el.name}</p>
                 </div>
               );
             })
