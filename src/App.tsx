@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <div>
-        <Link to="/brasil">Nueva Pagina</Link>
+        <Link to="/madison">Nueva Pagina</Link>
         <button onClick={() => getData()}>Obtener Data</button>
       </div>
       <div>
